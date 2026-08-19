@@ -1,0 +1,2190 @@
+/* =========================================================
+   SPS LEARNING COMMAND CENTER
+========================================================= */
+
+.features-command {
+  position: relative;
+  isolation: isolate;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  padding: 140px 0;
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(80, 74, 255, 0.13),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 88% 70%,
+      rgba(151, 57, 255, 0.12),
+      transparent 32%
+    ),
+    linear-gradient(
+      180deg,
+      #040817 0%,
+      #060b1d 45%,
+      #080d21 100%
+    );
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   GRID BACKGROUND
+========================================================= */
+
+.command-grid {
+  position: absolute;
+
+  z-index: -5;
+
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    70px 70px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent,
+      #000 12%,
+      #000 88%,
+      transparent
+    );
+
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      transparent,
+      #000 12%,
+      #000 88%,
+      transparent
+    );
+}
+
+
+/* =========================================================
+   ORBS
+========================================================= */
+
+.command-orb {
+  position: absolute;
+
+  z-index: -4;
+
+  border-radius: 50%;
+
+  filter: blur(120px);
+
+  pointer-events: none;
+}
+
+
+.command-orb-one {
+  top: 280px;
+  left: -200px;
+
+  width: 600px;
+  height: 600px;
+
+  background:
+    rgba(80, 73, 255, 0.15);
+}
+
+
+.command-orb-two {
+  right: -220px;
+  bottom: 150px;
+
+  width: 650px;
+  height: 650px;
+
+  background:
+    rgba(145, 61, 255, 0.13);
+}
+
+
+/* =========================================================
+   NOISE
+========================================================= */
+
+.command-noise {
+  position: absolute;
+
+  z-index: -3;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.16;
+
+  background:
+    radial-gradient(
+      rgba(255, 255, 255, 0.08) 0.5px,
+      transparent 0.5px
+    );
+
+  background-size:
+    8px 8px;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.command-container {
+  position: relative;
+
+  z-index: 5;
+
+  width:
+    min(92%, 1420px);
+
+  margin:
+    0 auto;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.command-intro {
+  max-width: 950px;
+
+  margin:
+    0 auto 75px;
+
+  text-align: center;
+}
+
+
+.command-intro-badge {
+  width: fit-content;
+
+  margin:
+    0 auto 24px;
+
+  padding:
+    10px 16px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  border:
+    1px solid
+    rgba(158, 126, 255, 0.2);
+
+  border-radius: 999px;
+
+  background:
+    rgba(125, 83, 255, 0.08);
+
+  color: #b69dff;
+
+  font-size: 10px;
+
+  font-weight: 850;
+
+  letter-spacing: 2px;
+
+  backdrop-filter:
+    blur(14px);
+}
+
+
+.command-intro-badge > span {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #8e65ff;
+
+  box-shadow:
+    0 0 14px
+    rgba(142, 101, 255, 0.9);
+}
+
+
+.command-intro-badge svg {
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   INTRO TITLE
+========================================================= */
+
+.command-intro h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size:
+    clamp(
+      58px,
+      6vw,
+      88px
+    );
+
+  font-weight: 900;
+
+  line-height: 0.96;
+
+  letter-spacing: -5px;
+}
+
+
+.command-intro h2 span {
+  color: transparent;
+
+  background:
+    linear-gradient(
+      100deg,
+      #9871ff,
+      #c087ff,
+      #58a2ff
+    );
+
+  background-clip: text;
+
+  -webkit-background-clip: text;
+}
+
+
+.command-intro p {
+  max-width: 700px;
+
+  margin:
+    27px auto 0;
+
+  color: #8994ad;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   COMMAND CENTER
+========================================================= */
+
+.command-center {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 24px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.1);
+
+  border-radius: 32px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(13, 20, 45, 0.94),
+      rgba(9, 14, 34, 0.96)
+    );
+
+  box-shadow:
+    0 50px 130px
+    rgba(0, 0, 0, 0.38),
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.05);
+
+  backdrop-filter:
+    blur(25px);
+}
+
+
+/* TOP LIGHT */
+
+.command-center::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 10%;
+
+  width: 80%;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(157, 116, 255, 0.9),
+      rgba(72, 155, 255, 0.8),
+      transparent
+    );
+
+  box-shadow:
+    0 0 30px
+    rgba(130, 93, 255, 0.6);
+}
+
+
+/* =========================================================
+   CENTER GLOW
+========================================================= */
+
+.command-center-glow {
+  position: absolute;
+
+  z-index: 0;
+
+  top: 10%;
+  left: 50%;
+
+  width: 700px;
+  height: 350px;
+
+  transform:
+    translateX(-50%);
+
+  border-radius: 50%;
+
+  background:
+    rgba(102, 78, 255, 0.08);
+
+  filter:
+    blur(100px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.command-topbar {
+  position: relative;
+
+  z-index: 3;
+
+  padding:
+    5px 5px 22px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.command-brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+
+.command-brand-logo {
+  width: 45px;
+  height: 45px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(157, 124, 255, 0.28);
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(128, 83, 255, 0.25),
+      rgba(63, 133, 255, 0.12)
+    );
+
+  color: #ffffff;
+
+  font-size: 12px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.5px;
+
+  box-shadow:
+    inset 0 0 20px
+    rgba(136, 92, 255, 0.08);
+}
+
+
+.command-brand > div:last-child {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+.command-brand strong {
+  color: #f4f1ff;
+
+  font-size: 11px;
+
+  font-weight: 850;
+
+  letter-spacing: 1.3px;
+}
+
+
+.command-brand span {
+  color: #68738e;
+
+  font-size: 7px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.1px;
+}
+
+
+/* =========================================================
+   SYSTEM STATUS
+========================================================= */
+
+.command-system-status {
+  padding:
+    8px 12px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  border:
+    1px solid
+    rgba(65, 224, 156, 0.13);
+
+  border-radius: 999px;
+
+  background:
+    rgba(50, 209, 137, 0.055);
+
+  color: #70dda7;
+
+  font-size: 8px;
+
+  font-weight: 850;
+
+  letter-spacing: 1.3px;
+}
+
+
+.command-system-status > span {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #54df9b;
+
+  box-shadow:
+    0 0 10px
+    rgba(84, 223, 155, 0.8);
+}
+
+
+/* =========================================================
+   DASHBOARD TITLE
+========================================================= */
+
+.command-dashboard-title {
+  position: relative;
+
+  z-index: 3;
+
+  padding:
+    40px 10px 28px;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+
+.command-dashboard-title > div:first-child > span {
+  color: #80759e;
+
+  font-size: 8px;
+
+  font-weight: 850;
+
+  letter-spacing: 2px;
+}
+
+
+.command-dashboard-title h3 {
+  margin:
+    8px 0 0;
+
+  color: #ffffff;
+
+  font-size:
+    clamp(
+      30px,
+      3vw,
+      44px
+    );
+
+  font-weight: 850;
+
+  line-height: 1;
+
+  letter-spacing: -2px;
+}
+
+
+.command-dashboard-title h3 strong {
+  color: #a88bff;
+}
+
+
+/* =========================================================
+   ACTIVE CHIP
+========================================================= */
+
+.command-live-chip {
+  padding:
+    10px 14px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  border:
+    1px solid
+    rgba(130, 98, 255, 0.17);
+
+  border-radius: 12px;
+
+  background:
+    rgba(123, 85, 255, 0.07);
+
+  color: #b5a3e8;
+
+  font-size: 9px;
+
+  font-weight: 750;
+}
+
+
+.command-live-chip svg {
+  color: #8f6cff;
+}
+
+
+/* =========================================================
+   MAIN GRID
+========================================================= */
+
+.command-main-grid {
+  position: relative;
+
+  z-index: 3;
+
+  display: grid;
+
+  grid-template-columns:
+    0.85fr 1.15fr;
+
+  gap: 16px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.command-card {
+  position: relative;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.075);
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.047),
+      rgba(255, 255, 255, 0.022)
+    );
+
+  box-shadow:
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.035);
+
+  backdrop-filter:
+    blur(20px);
+}
+
+
+.command-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: -100px;
+  right: -100px;
+
+  width: 230px;
+  height: 230px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(121, 82, 255, 0.07);
+
+  filter:
+    blur(45px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   TOP CARDS
+========================================================= */
+
+.journey-card,
+.progress-card {
+  min-height: 370px;
+
+  padding: 27px;
+}
+
+
+/* =========================================================
+   CARD TOP
+========================================================= */
+
+.command-card-top {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+
+.command-eyebrow {
+  color: #8378a2;
+
+  font-size: 8px;
+
+  font-weight: 850;
+
+  letter-spacing: 1.6px;
+}
+
+
+.command-card-top h4 {
+  margin:
+    8px 0 0;
+
+  color: #ffffff;
+
+  font-size: 24px;
+
+  font-weight: 800;
+
+  letter-spacing: -1px;
+}
+
+
+.command-card-icon {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(155, 122, 255, 0.15);
+
+  border-radius: 12px;
+
+  background:
+    rgba(130, 86, 255, 0.08);
+
+  color: #a98cff;
+
+  font-size: 18px;
+}
+
+
+/* =========================================================
+   JOURNEY
+========================================================= */
+
+.journey-description {
+  max-width: 390px;
+
+  margin:
+    17px 0 0;
+
+  color: #79849e;
+
+  font-size: 11px;
+
+  line-height: 1.7;
+}
+
+
+.journey-stats {
+  margin-top: 30px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 9px;
+}
+
+
+.journey-stat {
+  min-height: 125px;
+
+  padding: 16px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.055);
+
+  border-radius: 14px;
+
+  background:
+    rgba(255, 255, 255, 0.025);
+}
+
+
+.journey-stat svg {
+  margin-bottom: 11px;
+
+  color: #9577ee;
+
+  font-size: 15px;
+}
+
+
+.journey-stat strong {
+  color: #ffffff;
+
+  font-size: 22px;
+
+  font-weight: 850;
+
+  line-height: 1;
+}
+
+
+.journey-stat span {
+  margin-top: 6px;
+
+  color: #778199;
+
+  font-size: 8px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   JOURNEY FOOTER
+========================================================= */
+
+.journey-footer {
+  margin-top: 22px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  color: #7f8aa3;
+
+  font-size: 9px;
+
+  font-weight: 700;
+}
+
+
+.journey-footer > span {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+}
+
+
+.journey-footer svg {
+  color: #9a7cff;
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.progress-percentage {
+  color: #a88cff;
+
+  font-size: 35px;
+
+  font-weight: 900;
+
+  letter-spacing: -2px;
+}
+
+
+/* =========================================================
+   PROGRESS BAR
+========================================================= */
+
+.progress-track {
+  position: relative;
+
+  height: 8px;
+
+  margin-top: 31px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, 0.06);
+}
+
+
+.progress-fill {
+  position: relative;
+
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #7250ee,
+      #9b6eff,
+      #4b9dff
+    );
+
+  box-shadow:
+    0 0 20px
+    rgba(126, 87, 255, 0.35);
+}
+
+
+.progress-fill > span {
+  position: absolute;
+
+  top: 50%;
+  right: 0;
+
+  width: 8px;
+  height: 8px;
+
+  transform:
+    translateY(-50%);
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 10px #ffffff,
+    0 0 20px #8063ff;
+}
+
+
+/* =========================================================
+   PROGRESS INFO
+========================================================= */
+
+.progress-info {
+  margin-top: 11px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+
+.progress-info span,
+.progress-info strong {
+  font-size: 8px;
+}
+
+
+.progress-info span {
+  color: #68748e;
+}
+
+
+.progress-info strong {
+  color: #9682d1;
+
+  font-weight: 750;
+}
+
+
+/* =========================================================
+   CURRENT MODULE
+========================================================= */
+
+.current-module {
+  margin-top: 32px;
+
+  padding: 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  border:
+    1px solid
+    rgba(148, 114, 255, 0.12);
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(124, 82, 255, 0.09),
+      rgba(60, 129, 255, 0.035)
+    );
+}
+
+
+.current-module-icon {
+  width: 47px;
+  height: 47px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background:
+    rgba(131, 89, 255, 0.11);
+
+  color: #a286ff;
+
+  font-size: 18px;
+}
+
+
+.current-module-content {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+.current-module-content span {
+  color: #796f96;
+
+  font-size: 7px;
+
+  font-weight: 850;
+
+  letter-spacing: 1.2px;
+}
+
+
+.current-module-content strong {
+  margin-top: 4px;
+
+  color: #f4f1ff;
+
+  font-size: 13px;
+
+  font-weight: 750;
+}
+
+
+.current-module-content small {
+  margin-top: 4px;
+
+  color: #69748d;
+
+  font-size: 8px;
+}
+
+
+/* =========================================================
+   PLAY BUTTON
+========================================================= */
+
+.module-play {
+  width: 42px;
+  height: 42px;
+
+  margin-left: auto;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      145deg,
+      #7653ee,
+      #996cff
+    );
+
+  color: #ffffff;
+
+  font-size: 14px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 25px
+    rgba(123, 84, 239, 0.25);
+}
+
+
+/* =========================================================
+   SECOND GRID
+========================================================= */
+
+.command-secondary-grid {
+  position: relative;
+
+  z-index: 3;
+
+  margin-top: 16px;
+
+  display: grid;
+
+  grid-template-columns:
+    0.8fr 0.8fr 1.4fr;
+
+  gap: 16px;
+}
+
+
+.mentor-card,
+.assessment-card,
+.interview-card {
+  min-height: 310px;
+
+  padding: 23px;
+
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+
+.mentor-card:hover,
+.assessment-card:hover,
+.interview-card:hover {
+  border-color:
+    rgba(153, 119, 255, 0.2);
+
+  background:
+    rgba(255, 255, 255, 0.055);
+}
+
+
+/* =========================================================
+   SMALL HEADING
+========================================================= */
+
+.small-card-heading {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+}
+
+
+.small-feature-icon {
+  width: 33px;
+  height: 33px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background:
+    rgba(132, 90, 255, 0.09);
+
+  color: #a184f7;
+
+  font-size: 14px;
+}
+
+
+.small-card-heading > span {
+  color: #7d7595;
+
+  font-size: 8px;
+
+  font-weight: 850;
+
+  letter-spacing: 1.2px;
+}
+
+
+/* =========================================================
+   MENTOR
+========================================================= */
+
+.mentor-avatar {
+  position: relative;
+
+  width: fit-content;
+
+  margin:
+    27px 0 18px;
+}
+
+
+.mentor-avatar-inner {
+  width: 72px;
+  height: 72px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(161, 127, 255, 0.16);
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(128, 84, 255, 0.18),
+      rgba(64, 132, 255, 0.08)
+    );
+
+  color: #b59aff;
+
+  font-size: 28px;
+
+  box-shadow:
+    0 18px 35px
+    rgba(0, 0, 0, 0.14);
+}
+
+
+.mentor-online {
+  position: absolute;
+
+  right: -3px;
+  bottom: -3px;
+
+  width: 16px;
+  height: 16px;
+
+  border:
+    4px solid #0d132b;
+
+  border-radius: 50%;
+
+  background: #4cdf96;
+
+  box-shadow:
+    0 0 12px
+    rgba(76, 223, 150, 0.5);
+}
+
+
+.mentor-card h4,
+.assessment-card h4 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 17px;
+
+  font-weight: 800;
+
+  letter-spacing: -0.5px;
+}
+
+
+.mentor-card p,
+.assessment-card p {
+  margin:
+    8px 0 0;
+
+  color: #737e97;
+
+  font-size: 9px;
+
+  line-height: 1.6;
+}
+
+
+.mentor-status {
+  width: fit-content;
+
+  margin-top: 19px;
+
+  padding:
+    7px 10px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(65, 218, 145, 0.06);
+
+  color: #68dba3;
+
+  font-size: 7px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.8px;
+}
+
+
+.mentor-status span {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #52dc99;
+}
+
+
+/* =========================================================
+   ASSESSMENT
+========================================================= */
+
+.assessment-score {
+  margin:
+    23px 0 17px;
+}
+
+
+.assessment-ring {
+  position: relative;
+
+  width: 95px;
+  height: 95px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    conic-gradient(
+      #906bff 0deg,
+      #55a0ff 331deg,
+      rgba(255, 255, 255, 0.06) 331deg
+    );
+
+  box-shadow:
+    0 0 35px
+    rgba(120, 87, 255, 0.12);
+}
+
+
+.assessment-ring::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 7px;
+
+  border-radius: 50%;
+
+  background: #0c132b;
+}
+
+
+.assessment-ring > div {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  align-items: baseline;
+}
+
+
+.assessment-ring strong {
+  color: #ffffff;
+
+  font-size: 25px;
+
+  font-weight: 900;
+}
+
+
+.assessment-ring span {
+  color: #9785cb;
+
+  font-size: 9px;
+
+  font-weight: 800;
+}
+
+
+.assessment-footer {
+  margin-top: 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  color: #7a849d;
+
+  font-size: 8px;
+
+  font-weight: 700;
+}
+
+
+.assessment-footer svg {
+  color: #65d9a3;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   INTERVIEW
+========================================================= */
+
+.interview-top {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+}
+
+
+.interview-live {
+  padding:
+    6px 9px;
+
+  border:
+    1px solid
+    rgba(160, 125, 255, 0.13);
+
+  border-radius: 999px;
+
+  background:
+    rgba(132, 88, 255, 0.07);
+
+  color: #a68ce8;
+
+  font-size: 7px;
+
+  font-weight: 850;
+
+  letter-spacing: 0.8px;
+}
+
+
+.interview-content {
+  margin-top: 28px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+}
+
+
+.interview-date {
+  width: 72px;
+  height: 80px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(157, 121, 255, 0.13);
+
+  border-radius: 15px;
+
+  background:
+    rgba(132, 88, 255, 0.07);
+}
+
+
+.interview-date span {
+  color: #9a83d8;
+
+  font-size: 8px;
+
+  font-weight: 850;
+
+  letter-spacing: 1px;
+}
+
+
+.interview-date strong {
+  margin-top: 3px;
+
+  color: #ffffff;
+
+  font-size: 27px;
+
+  font-weight: 900;
+}
+
+
+.interview-details > span {
+  color: #82779e;
+
+  font-size: 7px;
+
+  font-weight: 850;
+
+  letter-spacing: 1.2px;
+}
+
+
+.interview-details h4 {
+  margin:
+    5px 0 0;
+
+  color: #ffffff;
+
+  font-size: 17px;
+
+  font-weight: 800;
+}
+
+
+.interview-details p {
+  margin:
+    6px 0 0;
+
+  color: #707b94;
+
+  font-size: 8px;
+}
+
+
+/* =========================================================
+   INTERVIEW READINESS
+========================================================= */
+
+.interview-readiness {
+  margin-top: 24px;
+}
+
+
+.interview-readiness > div:first-child {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  color: #7d87a0;
+
+  font-size: 8px;
+}
+
+
+.interview-readiness strong {
+  color: #a78cff;
+}
+
+
+.readiness-track {
+  height: 5px;
+
+  margin-top: 8px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, 0.055);
+}
+
+
+.readiness-track span {
+  display: block;
+
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #7652ef,
+      #a272ff,
+      #4c9dff
+    );
+
+  box-shadow:
+    0 0 15px
+    rgba(132, 92, 255, 0.25);
+}
+
+
+/* =========================================================
+   INTERVIEW BUTTON
+========================================================= */
+
+.interview-button {
+  width: 100%;
+
+  min-height: 40px;
+
+  margin-top: 20px;
+
+  padding:
+    0 14px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+
+  border-radius: 10px;
+
+  background:
+    rgba(255, 255, 255, 0.045);
+
+  color: #d6d0e8;
+
+  font-size: 9px;
+
+  font-weight: 750;
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+.interview-button:hover {
+  transform:
+    translateY(-2px);
+
+  border-color:
+    rgba(158, 121, 255, 0.2);
+
+  background:
+    rgba(130, 89, 255, 0.09);
+}
+
+
+.interview-button svg {
+  color: #a58aff;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   LEARNING PATH
+========================================================= */
+
+.command-path {
+  position: relative;
+
+  z-index: 3;
+
+  margin-top: 18px;
+
+  padding:
+    34px 40px 27px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.06);
+
+  border-radius: 18px;
+
+  background:
+    rgba(255, 255, 255, 0.02);
+}
+
+
+.command-path-line {
+  position: absolute;
+
+  top: 45px;
+  left: 10%;
+  right: 10%;
+
+  height: 2px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, 0.06);
+}
+
+
+.command-path-progress {
+  width: 0;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #7350ef,
+      #a26dff,
+      #4a9dff
+    );
+
+  box-shadow:
+    0 0 18px
+    rgba(124, 86, 255, 0.45);
+}
+
+
+/* =========================================================
+   PATH STEPS
+========================================================= */
+
+.command-path-steps {
+  position: relative;
+
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 20px;
+}
+
+
+.command-step {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+
+.command-step > span {
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border:
+    4px solid #0c1229;
+
+  border-radius: 50%;
+
+  background: #8b65f7;
+
+  color: #ffffff;
+
+  font-size: 6px;
+
+  font-weight: 900;
+
+  box-shadow:
+    0 0 15px
+    rgba(139, 101, 247, 0.5);
+}
+
+
+.command-step strong {
+  color: #8a93aa;
+
+  font-size: 8px;
+
+  font-weight: 850;
+
+  letter-spacing: 1.3px;
+}
+
+
+/* =========================================================
+   BOTTOM BAR
+========================================================= */
+
+.command-bottom-bar {
+  position: relative;
+
+  z-index: 3;
+
+  margin-top: 18px;
+
+  padding:
+    15px 7px 3px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  color: #59647d;
+
+  font-size: 7px;
+
+  font-weight: 750;
+
+  letter-spacing: 0.8px;
+}
+
+
+.command-bottom-bar > div {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+}
+
+
+.command-bottom-bar svg {
+  color: #8164d7;
+
+  font-size: 12px;
+}
+
+
+.command-connected {
+  color: #65c994;
+}
+
+
+.command-connected span {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #4ddd95;
+
+  box-shadow:
+    0 0 8px
+    rgba(77, 221, 149, 0.6);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .command-main-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .command-secondary-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+
+  .interview-card {
+    grid-column:
+      1 / -1;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .features-command {
+    padding:
+      90px 0;
+  }
+
+
+  .command-container {
+    width:
+      calc(100% - 26px);
+  }
+
+
+  /* INTRO */
+
+  .command-intro {
+    margin-bottom:
+      50px;
+  }
+
+
+  .command-intro h2 {
+    font-size: 47px;
+
+    letter-spacing: -3px;
+  }
+
+
+  .command-intro p {
+    font-size: 13px;
+  }
+
+
+  .command-intro-badge {
+    font-size: 8px;
+
+    letter-spacing: 1.2px;
+  }
+
+
+  /* COMMAND */
+
+  .command-center {
+    padding: 14px;
+
+    border-radius: 23px;
+  }
+
+
+  /* TOP BAR */
+
+  .command-topbar {
+    align-items:
+      flex-start;
+  }
+
+
+  .command-brand span {
+    display: none;
+  }
+
+
+  .command-system-status {
+    font-size: 6px;
+  }
+
+
+  /* TITLE */
+
+  .command-dashboard-title {
+    padding:
+      30px 5px 22px;
+
+    align-items:
+      flex-start;
+
+    flex-direction:
+      column;
+  }
+
+
+  .command-dashboard-title h3 {
+    font-size: 32px;
+  }
+
+
+  /* CARDS */
+
+  .journey-card,
+  .progress-card {
+    min-height: auto;
+
+    padding: 20px;
+  }
+
+
+  .journey-stats {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .journey-stat {
+    min-height: 90px;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    gap: 13px;
+  }
+
+
+  .journey-stat svg {
+    margin: 0;
+  }
+
+
+  .journey-stat span {
+    margin: 0;
+  }
+
+
+  /* SECOND GRID */
+
+  .command-secondary-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .interview-card {
+    grid-column: auto;
+  }
+
+
+  .mentor-card,
+  .assessment-card,
+  .interview-card {
+    min-height: auto;
+  }
+
+
+  /* PATH */
+
+  .command-path {
+    padding:
+      28px 15px 23px;
+  }
+
+
+  .command-path-line {
+    display: none;
+  }
+
+
+  .command-path-steps {
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap: 25px;
+  }
+
+
+  /* BOTTOM */
+
+  .command-bottom-bar {
+    flex-direction:
+      column;
+
+    align-items:
+      flex-start;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+  .command-intro h2 {
+    font-size: 40px;
+  }
+
+
+  .command-card-top h4 {
+    font-size: 20px;
+  }
+
+
+  .progress-percentage {
+    font-size: 28px;
+  }
+
+
+  .current-module {
+    align-items:
+      flex-start;
+  }
+
+
+  .module-play {
+    width: 36px;
+    height: 36px;
+  }
+
+
+  .interview-content {
+    align-items:
+      flex-start;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .command-card,
+  .interview-button {
+    transition: none;
+  }
+
+}
