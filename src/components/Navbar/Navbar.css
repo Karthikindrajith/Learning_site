@@ -39,24 +39,53 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
+
 /* ==============================
    LOGO
 ================================ */
 
 .navbar-logo {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 11px;
 
   color: #fff;
 
+  text-decoration: none;
+
   line-height: 1;
+
   flex-shrink: 0;
+}
+
+.navbar-logo-image {
+  width: 48px;
+  height: 48px;
+
+  display: block;
+
+  object-fit: contain;
+
+  flex-shrink: 0;
+
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.navbar-logo:hover .navbar-logo-image {
+  transform: scale(1.06);
+
+  filter:
+    drop-shadow(0 0 8px rgba(156, 80, 255, 0.5));
 }
 
 .logo-main {
   font-size: 34px;
   font-weight: 900;
+
   letter-spacing: -3px;
+
   font-style: italic;
 }
 
@@ -65,10 +94,12 @@
 
   font-size: 7px;
   font-weight: 700;
+
   letter-spacing: 1.6px;
 
   opacity: 0.9;
 }
+
 
 /* ==============================
    MENU
@@ -98,6 +129,8 @@
   font-size: 15px;
   font-weight: 500;
 
+  text-decoration: none;
+
   transition:
     color 0.3s ease,
     transform 0.3s ease;
@@ -109,10 +142,14 @@
 
 .nav-link:hover {
   color: #ffffff;
+
   transform: translateY(-1px);
 }
 
-/* ACTIVE HOME */
+
+/* ==============================
+   ACTIVE HOME
+================================ */
 
 .nav-link.active {
   color: #dca5ff;
@@ -144,6 +181,7 @@
     0 0 20px rgba(168, 73, 255, 0.9);
 }
 
+
 /* ==============================
    GET STARTED
 ================================ */
@@ -169,6 +207,8 @@
   font-size: 15px;
   font-weight: 600;
 
+  text-decoration: none;
+
   background: linear-gradient(
     100deg,
     #6e25e8 0%,
@@ -192,6 +232,7 @@
   content: "";
 
   position: absolute;
+
   top: -50%;
   left: -60%;
 
@@ -221,6 +262,7 @@
   font-size: 18px;
 }
 
+
 /* ==============================
    MOBILE
 ================================ */
@@ -249,11 +291,13 @@
   display: none;
 }
 
+
 /* ==============================
    TABLET
 ================================ */
 
 @media (max-width: 1150px) {
+
   .navbar-menu {
     gap: 20px;
   }
@@ -264,30 +308,62 @@
 
   .get-started-btn {
     min-width: 145px;
+
     padding: 0 18px;
   }
+
+  .navbar-logo-image {
+    width: 44px;
+    height: 44px;
+  }
+
+  .logo-main {
+    font-size: 30px;
+  }
 }
+
 
 /* ==============================
    MOBILE NAVBAR
 ================================ */
 
 @media (max-width: 900px) {
+
   .navbar-wrapper {
     top: 14px;
+
     padding: 0 16px;
   }
 
   .navbar-container {
     height: 70px;
+
     padding: 0 18px;
 
     border-radius: 17px;
   }
 
-  .logo-main {
-    font-size: 29px;
+
+  /* MOBILE LOGO */
+
+  .navbar-logo {
+    gap: 8px;
   }
+
+  .navbar-logo-image {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logo-main {
+    font-size: 27px;
+  }
+
+  .logo-sub {
+    font-size: 6px;
+    letter-spacing: 1.2px;
+  }
+
 
   .get-started-btn {
     display: none;
@@ -322,7 +398,8 @@
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
 
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+    box-shadow:
+      0 25px 60px rgba(0, 0, 0, 0.45);
 
     opacity: 0;
     visibility: hidden;
@@ -337,6 +414,7 @@
 
   .navbar-menu.menu-open {
     opacity: 1;
+
     visibility: visible;
 
     transform: translateY(0) scale(1);
@@ -373,6 +451,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
     gap: 10px;
 
     border-radius: 12px;
@@ -381,12 +460,15 @@
 
     font-weight: 600;
 
+    text-decoration: none;
+
     background: linear-gradient(
       100deg,
       #7131f2,
       #a039f5
     );
 
-    box-shadow: 0 10px 30px rgba(123, 54, 255, 0.3);
+    box-shadow:
+      0 10px 30px rgba(123, 54, 255, 0.3);
   }
 }

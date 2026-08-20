@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
 
@@ -39,6 +40,8 @@ const categories = [
   "Business",
 ];
 
+
+
 /* =========================================================
    COURSE DATA
 ========================================================= */
@@ -46,6 +49,7 @@ const categories = [
 const courses = [
   {
     id: 1,
+    slug: "react-development",
     title: "React.js Development",
     category: "Full Stack Development",
     image: "/images/courses/react.webp",
@@ -60,6 +64,7 @@ const courses = [
   },
   {
     id: 2,
+    slug:"python-programming",
     title: "Python Programming",
     category: "Programming",
     image: "/images/courses/python.webp",
@@ -74,6 +79,7 @@ const courses = [
   },
   {
     id: 3,
+    slug: "aws-cloud-practitioner",
     title: "AWS Cloud Practitioner",
     category: "Cloud & DevOps",
     image: "/images/courses/aws.webp",
@@ -88,6 +94,7 @@ const courses = [
   },
   {
     id: 4,
+    slug: "mern-full-stack-development",
     title: "MERN Full-Stack Development",
     category: "Full Stack Development",
     image: "/images/courses/mern.webp",
@@ -102,6 +109,7 @@ const courses = [
   },
   {
     id: 5,
+    slug: "data-science-analytics",
     title: "Data Science & Analytics",
     category: "Data & AI",
     image: "/images/courses/data-science.webp",
@@ -116,6 +124,7 @@ const courses = [
   },
   {
     id: 6,
+    slug: "devops-with-docker",
     title: "DevOps with Docker",
     category: "Cloud & DevOps",
     image: "/images/courses/devops.webp",
@@ -130,6 +139,7 @@ const courses = [
   },
   {
     id: 7,
+    slug: "ui-ux-design",
     title: "UI/UX Design",
     category: "Design",
     image: "/images/courses/uiux.webp",
@@ -144,6 +154,7 @@ const courses = [
   },
   {
     id: 8,
+    slug:"digital-marketing",
     title: "Digital Marketing",
     category: "Business",
     image: "/images/courses/digital-marketing.webp",
@@ -736,9 +747,15 @@ export default function CoursesPage() {
 
                         </div>
 
-                        <a href="/contact">
-                          Explore Course
-                        </a>
+                     
+                     
+                     <Link
+  href={`/courses/${course.slug}`}
+  className="explore-course-link"
+>
+  Explore Course
+  <FiArrowUpRight />
+</Link>
 
                       </div>
 

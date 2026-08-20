@@ -9,6 +9,8 @@ import {
   FiSend,
 } from "react-icons/fi";
 
+import Link from "next/link";
+
 import {
   FaInstagram,
   FaLinkedinIn,
@@ -75,6 +77,7 @@ export default function Footer() {
           }}
         >
           <div className="footer-cta-content">
+
             <span className="footer-mini-badge">
               <span />
               START YOUR JOURNEY
@@ -90,16 +93,19 @@ export default function Footer() {
               Learn practical skills, build real projects and get the
               support you need to move confidently towards your career.
             </p>
+
           </div>
 
-          <a
+          <Link
             href="/contact"
             className="footer-cta-button"
           >
             Get Started
             <FiArrowUpRight />
-          </a>
+          </Link>
+
         </motion.div>
+
 
         {/* =====================================================
             MAIN FOOTER
@@ -128,13 +134,14 @@ export default function Footer() {
               duration: 0.6,
             }}
           >
-            <a
+
+            <Link
               href="/"
               className="footer-logo"
             >
               SPS
               <span>.</span>
-            </a>
+            </Link>
 
             <h3>
               Learning Solutions
@@ -150,39 +157,50 @@ export default function Footer() {
               support.
             </p>
 
+
             {/* Social */}
             <div className="footer-socials">
 
-              <a
-                href="#"
+              <Link
+                href="https://www.linkedin.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="LinkedIn"
               >
                 <FaLinkedinIn />
-              </a>
+              </Link>
 
-              <a
-                href="#"
+              <Link
+                href="https://www.instagram.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Instagram"
               >
                 <FaInstagram />
-              </a>
+              </Link>
 
-              <a
-                href="#"
+              <Link
+                href="https://www.youtube.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="YouTube"
               >
                 <FaYoutube />
-              </a>
+              </Link>
 
-              <a
-                href="#"
+              <Link
+                href="https://wa.me/917395814082"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="WhatsApp"
               >
                 <FaWhatsapp />
-              </a>
+              </Link>
 
             </div>
+
           </motion.div>
+
 
           {/* =================================================
               LINKS
@@ -211,22 +229,25 @@ export default function Footer() {
                     duration: 0.6,
                   }}
                 >
+
                   <h4>{title}</h4>
 
                   {links.map((link) => (
-                    <a
+                    <Link
                       href={link.href}
                       key={link.label}
                     >
                       {link.label}
                       <FiArrowUpRight />
-                    </a>
+                    </Link>
                   ))}
+
                 </motion.div>
               )
             )}
 
           </div>
+
 
           {/* =================================================
               CONTACT / ADDRESS
@@ -250,66 +271,87 @@ export default function Footer() {
               duration: 0.6,
             }}
           >
+
             <h4>Visit & Connect</h4>
+
 
             {/* Address */}
             <div className="footer-contact-item">
+
               <span className="footer-contact-icon">
                 <FiMapPin />
               </span>
 
               <div>
+
                 <small>VISIT US</small>
 
                 <p>
                   SPS Learning Solutions
                   <br />
-                  Your Full Address Here
+                  Chennai
                   <br />
-                  Your City, State - PIN
+                  Velacheery, Tamil-Nadu - 600756
                   <br />
                   India
                 </p>
+
               </div>
+
             </div>
 
+
             {/* Phone */}
-            <a
-              href="tel:+919999999999"
+            <Link
+              href="tel:+917395814082"
               className="footer-contact-item"
             >
+
               <span className="footer-contact-icon">
                 <FiPhone />
               </span>
 
               <div>
+
                 <small>CALL US</small>
 
                 <p>
-                  +91 99999 99999
+                  +91 7395814082
+                  <br />
+                  +91 7695898959
                 </p>
+
               </div>
-            </a>
+
+            </Link>
+
 
             {/* Email */}
-            <a
-              href="mailto:info@spslearningsolutions.com"
+            <Link
+              href="mailto:karthik2000indrajith@gmail.com"
               className="footer-contact-item"
             >
+
               <span className="footer-contact-icon">
                 <FiMail />
               </span>
 
               <div>
+
                 <small>EMAIL US</small>
 
                 <p>
-                  info@spslearningsolutions.com
+                  karthik2000indrajith@gmail.com
                 </p>
+
               </div>
-            </a>
+
+            </Link>
+
           </motion.div>
+
         </div>
+
 
         {/* =====================================================
             NEWSLETTER
@@ -332,7 +374,9 @@ export default function Footer() {
             duration: 0.7,
           }}
         >
+
           <div>
+
             <span>STAY UPDATED</span>
 
             <h3>
@@ -343,13 +387,17 @@ export default function Footer() {
               Get updates about courses, projects and career
               opportunities.
             </p>
+
           </div>
+
 
           <form
             className="footer-newsletter-form"
             onSubmit={(e) => e.preventDefault()}
           >
+
             <div className="footer-input-wrap">
+
               <FiMail />
 
               <input
@@ -357,14 +405,18 @@ export default function Footer() {
                 placeholder="Enter your email"
                 aria-label="Email address"
               />
+
             </div>
 
             <button type="submit">
               <FiSend />
               Subscribe
             </button>
+
           </form>
+
         </motion.div>
+
 
         {/* =====================================================
             BOTTOM BAR
@@ -378,28 +430,31 @@ export default function Footer() {
           </p>
 
           <div className="footer-bottom-links">
-            <a href="/privacy">
+
+            <Link href="/privacy">
               Privacy Policy
-            </a>
+            </Link>
 
             <span>•</span>
 
-            <a href="/terms">
+            <Link href="/terms">
               Terms & Conditions
-            </a>
+            </Link>
+
           </div>
 
-          <a
+          <Link
             href="#"
             className="footer-back-top"
             aria-label="Back to top"
           >
             <FiArrowUpRight />
-          </a>
+          </Link>
 
         </div>
 
       </div>
+
     </footer>
   );
 }

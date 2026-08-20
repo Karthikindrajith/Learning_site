@@ -30,6 +30,12 @@ export default function Navbar() {
           className="navbar-logo"
           onClick={closeMenu}
         >
+          <img
+            src="/images/logo/sps-logo.png"
+            alt="SPS Learning Solutions"
+            className="navbar-logo-image"
+          />
+
           <span className="logo-main">
             SPS
           </span>
@@ -38,7 +44,6 @@ export default function Navbar() {
             LEARNING SOLUTIONS
           </span>
         </Link>
-
 
         {/* =========================
             NAVIGATION
@@ -58,7 +63,6 @@ export default function Navbar() {
             Home
           </Link>
 
-
           {/* COURSES */}
           <Link
             href="/courses"
@@ -66,24 +70,20 @@ export default function Navbar() {
             onClick={closeMenu}
           >
             Courses
-
             <FiChevronDown />
           </Link>
 
-
-         
-
-
           {/* FEATURES */}
-       <Link
-  href="/features"
-  className="nav-link"
-  onClick={closeMenu}
->
-  Features
-</Link>
+          <Link
+            href="/features"
+            className="nav-link"
+            onClick={closeMenu}
+          >
+            Features
+          </Link>
 
-           <Link
+          {/* PROJECTS */}
+          <Link
             href="/projects"
             className="nav-link"
             onClick={closeMenu}
@@ -91,28 +91,23 @@ export default function Navbar() {
             Projects
           </Link>
 
+          {/* CAREER GUIDANCE */}
+          <Link
+            href="/career-guidance"
+            className="nav-link"
+            onClick={closeMenu}
+          >
+            Career Guidance
+          </Link>
 
-          {/* PLACEMENT SUPPORT */}
-         <Link
-  href="/career-guidance"
-  className="nav-link"
-  onClick={closeMenu}
->
-  Career Guidance
-</Link>
-
-<Link
-  href="/career"
-  className="nav-link"
-  onClick={closeMenu}
->
-  Career
-</Link>
-
-        
-
-
-         
+          {/* CAREER */}
+          <Link
+            href="/career"
+            className="nav-link"
+            onClick={closeMenu}
+          >
+            Career
+          </Link>
 
           {/* CONTACT */}
           <Link
@@ -123,22 +118,17 @@ export default function Navbar() {
             Contact
           </Link>
 
-
-          {/* =========================
-              MOBILE CTA
-          ========================= */}
+          {/* MOBILE CTA */}
           <Link
             href="/courses"
             className="mobile-get-started"
             onClick={closeMenu}
           >
             Get Started
-
             <FiArrowUpRight />
           </Link>
 
         </div>
-
 
         {/* =========================
             DESKTOP CTA
@@ -153,7 +143,6 @@ export default function Navbar() {
 
           <FiArrowUpRight />
         </Link>
-
 
         {/* =========================
             MOBILE MENU BUTTON
