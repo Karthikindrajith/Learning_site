@@ -8,11 +8,13 @@ import Features from "@/components/Features/Features"
 import ProjectLab from "@/components/ProjectLab/ProjectLab";
 import SuccessWall from "@/components/SuccessWall/SuccessWall"
 import Footer from "@/components/Footer/Footer"
+
 export default function Home() {
   return (
     <main>
   <Navbar/>
   <Hero/>
+  
       <Courses />
  <Projects />
  <Features />

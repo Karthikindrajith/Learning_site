@@ -118,6 +118,7 @@ const courses = [
   },
 ];
 
+
 /* =========================================================
    MARQUEE COURSES
 ========================================================= */
@@ -126,6 +127,7 @@ const scrollingCourses = [
   ...courses,
   ...courses,
 ];
+
 
 /* =========================================================
    CARD ANIMATION
@@ -148,6 +150,7 @@ const cardVariants = {
     },
   }),
 };
+
 
 /* =========================================================
    COURSES COMPONENT
@@ -186,6 +189,7 @@ export default function Courses() {
 
           transition={{
             duration: 0.7,
+            ease: [0.22, 1, 0.36, 1],
           }}
         >
 
@@ -330,6 +334,7 @@ export default function Courses() {
 
           transition={{
             duration: 0.7,
+            ease: [0.22, 1, 0.36, 1],
           }}
         >
 
@@ -541,6 +546,7 @@ export default function Courses() {
 
           transition={{
             duration: 0.7,
+            ease: [0.22, 1, 0.36, 1],
           }}
         >
 
