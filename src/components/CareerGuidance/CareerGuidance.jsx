@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import CountUp from "react-countup";
-
+import Navbar from "../Navbar/Navbar";
 import {
   FiArrowRight,
   FiUsers,
@@ -31,8 +31,9 @@ export default function CareerGuidance() {
   }, []);
 
   return (
+  
     <main className="career-page">
-
+  <Navbar />
       {/* =====================================================
           HERO
       ===================================================== */}
