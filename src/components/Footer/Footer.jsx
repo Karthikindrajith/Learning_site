@@ -23,7 +23,6 @@ import "./Footer.css";
 const footerLinks = {
   Explore: [
     { label: "Home", href: "/" },
-    { label: "About Us", href: "/about" },
     { label: "Courses", href: "/courses" },
     { label: "Projects", href: "/projects" },
   ],
