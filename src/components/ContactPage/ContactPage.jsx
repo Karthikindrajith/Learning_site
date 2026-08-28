@@ -23,6 +23,10 @@ import Footer from "@/components/Footer/Footer";
 
 import "./ContactPage.css";
 
+const API_URL =
+  process.env.NEXT_PUBLIC_API_URL ||
+  "https://sps-learning-backend.onrender.com";
+
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     full_name: "",
@@ -60,21 +64,28 @@ export default function ContactPage() {
 
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/contact/send/",
+        `${API_URL}/api/contact/send/`,
         {
           full_name: formData.full_name,
           email: formData.email,
           phone_number: formData.phone_number,
           subject: formData.subject,
           message: formData.message,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
       );
 
-      console.log("Contact message saved:", response.data);
+      console.log(
+        "Contact message saved:",
+        response.data
+      );
 
       setSuccess(true);
 
-      // Clear form after successful submission
       setFormData({
         full_name: "",
         email: "",
@@ -115,7 +126,6 @@ export default function ContactPage() {
         <section className="contact-hero">
 
           <div className="contact-hero-image-wrap">
-
             <Image
               src="/images/contact/contact-hero.webp"
               alt="SPS Solutions office"
@@ -124,7 +134,6 @@ export default function ContactPage() {
               sizes="(max-width: 700px) 100vw, 58vw"
               className="contact-hero-image"
             />
-
           </div>
 
           <div className="contact-hero-overlay" />
@@ -178,7 +187,6 @@ export default function ContactPage() {
           </div>
         </section>
 
-
         {/* =====================================================
             CONTACT MAIN
         ===================================================== */}
@@ -224,7 +232,6 @@ export default function ContactPage() {
 
                   </div>
 
-
                   <div className="contact-info-item">
 
                     <div className="contact-info-icon">
@@ -247,7 +254,6 @@ export default function ContactPage() {
 
                   </div>
 
-
                   <div className="contact-info-item">
 
                     <div className="contact-info-icon">
@@ -269,7 +275,6 @@ export default function ContactPage() {
                     </div>
 
                   </div>
-
 
                   <div className="contact-info-item">
 
@@ -294,7 +299,6 @@ export default function ContactPage() {
                   </div>
 
                 </motion.div>
-
 
                 {/* BUSINESS HOURS */}
 
@@ -327,7 +331,6 @@ export default function ContactPage() {
                     </h2>
 
                   </div>
-
 
                   <div className="business-hours-content">
 
@@ -375,7 +378,6 @@ export default function ContactPage() {
 
               </div>
 
-
               {/* =================================================
                   FORM
               ================================================= */}
@@ -412,7 +414,6 @@ export default function ContactPage() {
                   </p>
 
                 </div>
-
 
                 {/* SUCCESS MESSAGE */}
 
@@ -471,7 +472,6 @@ export default function ContactPage() {
                       </div>
                     )}
 
-
                     <div className="contact-form-grid">
 
                       {/* NAME */}
@@ -495,7 +495,6 @@ export default function ContactPage() {
 
                       </div>
 
-
                       {/* EMAIL */}
 
                       <div className="contact-field">
@@ -517,7 +516,6 @@ export default function ContactPage() {
 
                       </div>
 
-
                       {/* PHONE */}
 
                       <div className="contact-field">
@@ -536,7 +534,6 @@ export default function ContactPage() {
                         />
 
                       </div>
-
 
                       {/* SUBJECT */}
 
@@ -561,7 +558,6 @@ export default function ContactPage() {
 
                     </div>
 
-
                     {/* MESSAGE */}
 
                     <div className="contact-field contact-message-field">
@@ -582,7 +578,6 @@ export default function ContactPage() {
                       />
 
                     </div>
-
 
                     {/* SUBMIT */}
 
@@ -607,7 +602,6 @@ export default function ContactPage() {
 
                     </button>
 
-
                     <p className="contact-privacy">
                       We respect your privacy. Your
                       information is safe with us.
@@ -624,7 +618,6 @@ export default function ContactPage() {
           </div>
 
         </section>
-
 
         {/* =====================================================
             FEATURES CTA
@@ -661,7 +654,6 @@ export default function ContactPage() {
 
               </div>
 
-
               <div className="contact-feature-item">
 
                 <div className="contact-feature-icon">
@@ -684,7 +676,6 @@ export default function ContactPage() {
 
               </div>
 
-
               <div className="contact-feature-item">
 
                 <div className="contact-feature-icon">
@@ -706,7 +697,6 @@ export default function ContactPage() {
                 </div>
 
               </div>
-
 
               <div className="contact-feature-item">
 
@@ -736,9 +726,8 @@ export default function ContactPage() {
 
         </section>
 
-
         {/* =====================================================
-            MAP / LOCATION IMAGE
+            MAP / LOCATION
         ===================================================== */}
 
         <section className="contact-map-section">

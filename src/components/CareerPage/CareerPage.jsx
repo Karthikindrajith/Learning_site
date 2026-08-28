@@ -24,9 +24,13 @@ import Footer from "@/components/Footer/Footer";
 
 import "./CareerPage.css";
 
+/* =========================================================
+   BACKEND API
+========================================================= */
+
 const API_URL =
   process.env.NEXT_PUBLIC_API_URL ||
-  "http://127.0.0.1:8000";
+  "https://sps-learning-backend.onrender.com";
 
 /* =========================================================
    ANIMATED COUNTER
@@ -167,7 +171,7 @@ export default function CareerPage() {
   const [search, setSearch] = useState("");
 
   /* =======================================================
-     FETCH JOB OPENINGS
+     FETCH CAREERS FROM DJANGO BACKEND
   ======================================================= */
 
   useEffect(() => {
@@ -178,13 +182,17 @@ export default function CareerPage() {
         setLoading(true);
         setError("");
 
-        const response = await fetch(
-          `${API_URL}/api/careers/`,
-          {
-            method: "GET",
-            cache: "no-store",
-          }
-        );
+        const endpoint = `${API_URL}/api/careers/`;
+
+        console.log("Fetching careers from:", endpoint);
+
+        const response = await fetch(endpoint, {
+          method: "GET",
+          cache: "no-store",
+          headers: {
+            Accept: "application/json",
+          },
+        });
 
         if (!response.ok) {
           throw new Error(
@@ -193,6 +201,21 @@ export default function CareerPage() {
         }
 
         const data = await response.json();
+
+        console.log("Career API Response:", data);
+
+        /*
+          Supports both:
+          [
+            {...},
+            {...}
+          ]
+
+          and DRF pagination:
+          {
+            results: [...]
+          }
+        */
 
         const careerList = Array.isArray(data)
           ? data
@@ -207,6 +230,7 @@ export default function CareerPage() {
         console.error("Career API Error:", err);
 
         if (!cancelled) {
+          setJobs([]);
           setError(
             "Unable to load current openings."
           );
@@ -237,20 +261,37 @@ export default function CareerPage() {
     }
 
     const title =
-      job?.title?.toLowerCase() || "";
+      typeof job?.title === "string"
+        ? job.title.toLowerCase()
+        : "";
 
     const company =
-      job?.company?.toLowerCase() || "";
+      typeof job?.company === "string"
+        ? job.company.toLowerCase()
+        : "";
 
     const department =
-      job?.department?.toLowerCase() || "";
+      typeof job?.department === "string"
+        ? job.department.toLowerCase()
+        : "";
 
     const location =
-      job?.location?.toLowerCase() || "";
+      typeof job?.location === "string"
+        ? job.location.toLowerCase()
+        : "";
 
-    const skills = Array.isArray(job?.skills)
-      ? job.skills.join(" ").toLowerCase()
-      : "";
+    let skills = "";
+
+    if (Array.isArray(job?.skills)) {
+      skills = job.skills
+        .map((skill) => String(skill))
+        .join(" ")
+        .toLowerCase();
+    } else if (
+      typeof job?.skills === "string"
+    ) {
+      skills = job.skills.toLowerCase();
+    }
 
     return (
       title.includes(query) ||
@@ -347,7 +388,6 @@ export default function CareerPage() {
           </div>
         </section>
 
-
         {/* =====================================================
             STATS
         ===================================================== */}
@@ -393,7 +433,6 @@ export default function CareerPage() {
 
               </div>
 
-
               <div className="career-stat">
 
                 <div className="career-stat-icon blue">
@@ -416,7 +455,6 @@ export default function CareerPage() {
 
               </div>
 
-
               <div className="career-stat">
 
                 <div className="career-stat-icon green">
@@ -438,7 +476,6 @@ export default function CareerPage() {
                 </div>
 
               </div>
-
 
               <div className="career-stat">
 
@@ -466,7 +503,6 @@ export default function CareerPage() {
 
           </div>
         </section>
-
 
         {/* =====================================================
             LIFE AT SPS
@@ -499,7 +535,6 @@ export default function CareerPage() {
               </p>
 
             </div>
-
 
             <div className="life-grid">
 
@@ -554,7 +589,6 @@ export default function CareerPage() {
           </div>
         </section>
 
-
         {/* =====================================================
             WHY JOIN SPS
         ===================================================== */}
@@ -584,11 +618,11 @@ export default function CareerPage() {
 
             </div>
 
-
             <div className="why-grid">
 
               {whyJoin.map(
                 (item, index) => (
+
                   <motion.article
                     key={item.title}
                     className="why-card"
@@ -617,6 +651,7 @@ export default function CareerPage() {
                     </div>
 
                     <div>
+
                       <h3>
                         {item.title}
                       </h3>
@@ -624,9 +659,11 @@ export default function CareerPage() {
                       <p>
                         {item.text}
                       </p>
+
                     </div>
 
                   </motion.article>
+
                 )
               )}
 
@@ -634,7 +671,6 @@ export default function CareerPage() {
 
           </div>
         </section>
-
 
         {/* =====================================================
             OPEN POSITIONS
@@ -676,8 +712,9 @@ export default function CareerPage() {
 
             </div>
 
-
-            {/* SEARCH */}
+            {/* =================================================
+                SEARCH
+            ================================================= */}
 
             <div className="jobs-search">
 
@@ -694,10 +731,12 @@ export default function CareerPage() {
 
             </div>
 
-
-            {/* LOADING */}
+            {/* =================================================
+                LOADING
+            ================================================= */}
 
             {loading && (
+
               <div className="jobs-status">
 
                 <div className="jobs-spinner" />
@@ -707,12 +746,15 @@ export default function CareerPage() {
                 </p>
 
               </div>
+
             )}
 
-
-            {/* ERROR */}
+            {/* =================================================
+                ERROR
+            ================================================= */}
 
             {!loading && error && (
+
               <div className="jobs-status error">
 
                 <FiBriefcase />
@@ -726,14 +768,17 @@ export default function CareerPage() {
                 </p>
 
               </div>
+
             )}
 
-
-            {/* EMPTY */}
+            {/* =================================================
+                EMPTY
+            ================================================= */}
 
             {!loading &&
               !error &&
               filteredJobs.length === 0 && (
+
                 <div className="jobs-status">
 
                   <FiBriefcase />
@@ -748,18 +793,22 @@ export default function CareerPage() {
                   </p>
 
                 </div>
+
               )}
 
-
-            {/* DYNAMIC JOBS */}
+            {/* =================================================
+                DYNAMIC JOBS FROM BACKEND
+            ================================================= */}
 
             {!loading &&
               !error &&
               filteredJobs.length > 0 && (
+
                 <div className="jobs-list">
 
                   {filteredJobs.map(
                     (job, index) => (
+
                       <motion.article
                         key={
                           job?.id ||
@@ -809,66 +858,77 @@ export default function CareerPage() {
                             <div className="job-meta">
 
                               {job?.location && (
+
                                 <span>
                                   <FiMapPin />
                                   {job.location}
                                 </span>
+
                               )}
 
                               {job?.employment_type && (
+
                                 <span>
                                   <FiClock />
                                   {job.employment_type}
                                 </span>
+
                               )}
 
                               {job?.experience && (
+
                                 <span>
                                   <FiUsers />
                                   {job.experience}
                                 </span>
+
                               )}
 
                             </div>
 
+                            {/* SKILLS */}
 
                             {Array.isArray(
                               job?.skills
                             ) &&
                               job.skills.length > 0 && (
+
                                 <div className="job-skills">
 
                                   {job.skills
                                     .slice(0, 5)
                                     .map(
-                                      (skill) => (
+                                      (skill, skillIndex) => (
+
                                         <span
-                                          key={
-                                            skill
-                                          }
+                                          key={`${skill}-${skillIndex}`}
                                         >
                                           {skill}
                                         </span>
+
                                       )
                                     )}
 
                                 </div>
+
                               )}
 
                           </div>
 
                         </div>
 
-
                         <div className="job-right">
 
                           {job?.salary && (
+
                             <strong className="job-salary">
                               {job.salary}
                             </strong>
+
                           )}
 
                           {job?.posted_date && (
+
                             <small>
                               Posted{" "}
                               {new Date(
@@ -878,12 +938,15 @@ export default function CareerPage() {
                                 {
                                   day: "2-digit",
                                   month: "short",
+                                  year: "numeric",
                                 }
                               )}
                             </small>
+
                           )}
 
                           {job?.id && (
+
                             <a
                               href={`/career/${job.id}`}
                               className="job-view-btn"
@@ -891,20 +954,23 @@ export default function CareerPage() {
                               View Role
                               <FiArrowRight />
                             </a>
+
                           )}
 
                         </div>
 
                       </motion.article>
+
                     )
                   )}
 
                 </div>
+
               )}
 
           </div>
-        </section>
 
+        </section>
 
         {/* =====================================================
             FINAL CTA
@@ -962,6 +1028,7 @@ export default function CareerPage() {
             </div>
 
           </div>
+
         </section>
 
       </main>
